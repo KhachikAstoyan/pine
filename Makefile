@@ -1,6 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude -std=c17
-SOURCES = $(wildcard src/*.c)
+SOURCES = $(shell find src -type f -name '*.c')
+
 BUILD_DIR = build
 TARGET = $(BUILD_DIR)/editor
 
