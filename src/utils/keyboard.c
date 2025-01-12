@@ -22,11 +22,24 @@ int kbReadKey() {
 
     if (seq[0] == '[') {
       if (seq[1] >= '0' && seq[1] <= '9') {
-        if(read(STDIN_FILENO, &seq[2], 1) != 1) return ESCAPE;
-        if(seq[2] == '~') {
-          switch(seq[1]) {
-            case '5': return PAGE_UP;
-            case '6': return PAGE_DOWN;
+        if (read(STDIN_FILENO, &seq[2], 1) != 1)
+          return ESCAPE;
+        if (seq[2] == '~') {
+          switch (seq[1]) {
+            case '1':
+              return HOME;
+            case '3':
+              return DELETE;
+            case '4':
+              return END;
+            case '5':
+              return PAGE_UP;
+            case '6':
+              return PAGE_DOWN;
+            case '7':
+              return HOME;
+            case '8':
+              return END;
           }
         }
       } else {
@@ -39,7 +52,18 @@ int kbReadKey() {
             return ARROW_RIGHT;
           case 'D':
             return ARROW_LEFT;
+          case 'H':
+            return HOME;
+          case 'F':
+            return END;
         }
+      }
+    } else if (seq[0] == 'O') {
+      switch (seq[1]) {
+        case 'H':
+          return HOME;
+        case 'F':
+          return END;
       }
     }
   }

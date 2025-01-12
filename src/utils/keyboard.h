@@ -11,7 +11,10 @@ enum Key {
   ARROW_UP,
   ARROW_DOWN,
   PAGE_UP,
-  PAGE_DOWN
+  PAGE_DOWN,
+  HOME,
+  END,
+  DELETE
 };
 
 int kbReadKey();

@@ -30,12 +30,8 @@ void pineProcessKeypress(Pine *p) {
     break;
   case PAGE_UP:
   case PAGE_DOWN:
-    {
-      int times = p->winrows;
-      while(times--)
-        pineMoveCrsr(p, c == PAGE_UP ? ARROW_UP : ARROW_DOWN);
-    }
-    break;
+  case HOME:
+  case END:
   case ARROW_UP:
   case ARROW_DOWN:
   case ARROW_LEFT:

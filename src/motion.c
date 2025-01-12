@@ -18,6 +18,18 @@ void pineMoveCrsr(Pine *p, int key) {
     case ARROW_DOWN:
       if (p->cy != p->winrows - 1)
         p->cy++;
-    break;
+      break;
+    case PAGE_UP:
+      p->cy = 0;
+      break;
+    case PAGE_DOWN:
+      p->cy = p->winrows - 1;
+      break;
+    case HOME:
+      p->cx = 0;
+      break;
+    case END:
+      p->cx = p->wincols - 1;
+      break;
   }
 }
