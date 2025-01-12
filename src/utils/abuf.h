@@ -3,6 +3,7 @@
 
 #include "stddef.h" 
 #include "stdbool.h"
+
 #define ABUF_INIT {NULL, 0, 0}
 
 typedef struct {

@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Iinclude -std=c17
+CFLAGS = -Wall -Wextra -Iinclude -std=c17 -DVERSION=\"0.0.0\"
 SOURCES = $(shell find src -type f -name '*.c')
 
 BUILD_DIR = build
