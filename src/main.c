@@ -1,16 +1,24 @@
+#include "core.h"
 #include "utils/term.h"
-#include "pine/editor.h"
 #include <errno.h>
 #include <stdlib.h>
 #include <unistd.h>
 
+void cleanup() {
+  termDisableRaw();
+  termClearScreen();
+  termCrsrTopLeft();
+}
+
 int main(void) {
   termEnableRaw();
-  atexit(termDisableRaw);
+  atexit(cleanup);
+
+  Pine pine = pineInit();
 
   while (1) {
-    pineProcessKeypress(); 
-    pineRefreshScreen();
+    pineRefreshScreen(&pine);
+    pineProcessKeypress(&pine);
   }
 
   return 0;
